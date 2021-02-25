@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>first webpage!</title>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#0F141D">
+<meta name="viewport" content="width=device-width, initial-scale=0.75, user-scalable=no, minimal-ui">
+<link href='normalize.css' rel='stylesheet' type='text/css'>
+<link href='style.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<canvas id="sky"></canvas>
+
+<style type="text/css">
+  
+
+blockquote {
+    font-style: italic;
+    font-size: 2em;
+    padding: 6px 16px;
+    border: none;
+    quotes: "\201C" "\201D";
+    display: inline-block;
+    position: relative;
+}
+
+blockquote:before {
+    content: open-quote;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+blockquote:after {
+    content: close-quote;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+</style>
+
+
+
+<script>
+    /* Borrowed from here https://codepen.io/AlienPiglet/pen/hvekG */
+    var c = document.getElementById('sky');
+    var ctx = c.getContext('2d');
+    var xMax = c.width = window.screen.availWidth;
+    var yMax = c.height = window.screen.availHeight;
+
+    var hmTimes = Math.round(xMax + yMax);
+
+    for (var i = 0; i <= hmTimes; i++) {
+      var randomX = Math.floor((Math.random() * xMax) + 1);
+      var randomY = Math.floor((Math.random() * yMax) + 1);
+      var randomSize = Math.floor((Math.random() * 2) + 1);
+      var randomOpacityOne = Math.floor((Math.random() * 9) + 1);
+      var randomOpacityTwo = Math.floor((Math.random() * 9) + 1);
+      var randomHue = Math.floor((Math.random() * 360) + 1);
+      if (randomSize > 1) {
+        ctx.shadowBlur = Math.floor((Math.random() * 15) + 5);
+        ctx.shadowColor = "white";
+      }
+      ctx.fillStyle = "hsla(" + randomHue + ", 30%, 80%, ." + randomOpacityOne + randomOpacityTwo + ")";
+      ctx.fillRect(randomX, randomY, randomSize, randomSize);
+    }
+  </script>
+<div id="content">
+<div class='links'>
+<a href="#about">About Me</a>
+<a href="#projects">Projects</a>
+<a href="#login">Login</a>
+</div>
+
+<div class="page" id="about">
+
+<div id="profilepic">
+<img src="my_profile_pic.gif"  alt="profile picture">
+</div>
+
+  <p>This is my first webpage!
+
+    <br> </p>
+<p> 
+  I hope you’re having as much fun reading this as I had writing it!
+  <br> </p>
+
+
+
+  <p>It's a fairly simple webpage, but it is a complete webpage.</p>
+  <br>
+
+<blockquote  class ="blockquote">You <b>Can</b> Do <b>Anything</b>.</blockquote>
+
+</div>
+
+
+</body>
+
+</html>
+
+
